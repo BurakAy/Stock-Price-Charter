@@ -3,7 +3,7 @@ import tkinter.filedialog as fd
 import os
 
 window = tk.Tk()
-window.geometry("600x250")
+window.geometry("600x300")
 window.title('Data Charter')
 
 window_font = ('Calibri', 13)
@@ -11,6 +11,7 @@ window_font_bold = ('Calibri', 14, 'bold')
 
 sel_files = ''
 columns = []
+stock_name = ''
 
 def select_files():
     global sel_files
@@ -21,9 +22,11 @@ def select_files():
 
 def confirm_form():
     global columns
+    global stock_name
     input_columns = columns_input.get().split(',')
     for col in input_columns:
       columns.append(col.strip())
+    stock_name = name_input.get()
     window.destroy()
 
 def strip_file_names(files):
@@ -44,16 +47,22 @@ files_btn = tk.Button(
    font=window_font_bold, 
    command=lambda: select_files()
 )
-files_btn.pack(pady=10, side='top')
+files_btn.pack(pady=10)
 
 files_label = tk.Label(text=sel_files, wraplength=400, font=window_font)
 files_label.pack(pady=10)
 
-columns_label = tk.Label(text="Input comma separated column names", justify='left', font=window_font)
+columns_label = tk.Label(text="Input comma separated column names", font=window_font)
 columns_label.pack()
 
-columns_input = tk.Entry(window, width=50, font=window_font)
+columns_input = tk.Entry(window, width=30, justify='center', font=window_font)
 columns_input.pack()
+
+name_label = tk.Label(text="Enter name (ticker) of company", font=window_font)
+name_label.pack()
+
+name_input = tk.Entry(window, width=30, justify='center', font=window_font)
+name_input.pack()
 
 confirm_btn = tk.Button(
    window, 
@@ -64,7 +73,7 @@ confirm_btn = tk.Button(
    foreground='#ffffff', 
    background='#3f6fe8', 
    activeforeground='#ffffff', 
-   activebackground='#113899', 
+   activebackground='#113899',
    command=lambda: confirm_form()
 )
 confirm_btn.pack(pady=10, side='bottom')

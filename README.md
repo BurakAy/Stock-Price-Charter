@@ -9,6 +9,10 @@ A line is added to the chart for each file uploaded.
 After clicking 'OK' to confirm, a stacked line chart will be generated and displayed.<br>
 A PNG of the chart will also be created and saved in the directory.
 
+### Libraries used in development
+- [matplotlib](https://matplotlib.org/) for charting
+- [tkinter](https://docs.python.org/3/library/tkinter.html) for gui
+
 ## UI
 ![Screenshot of app UI](https://github.com/BurakAy/Stock-Price-Charter/blob/main/UI_Screenshot.png)
 

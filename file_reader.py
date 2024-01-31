@@ -51,10 +51,11 @@ def plotting(close, tr_date, files):
   plt.suptitle("YEARLY PERFORMANCE")
 
   for x in range(len(tr_date)):
-    plt.plot(tr_date[x], close[x], linewidth=1)
+    plt.plot(close[x], linewidth=1)
     plt.legend(file_names, fontsize="12")
 
-  plt.xlabel("TRADING DAYS (1 YR)")
+  plt.xlabel("TRADING DAYS (1 YR | Jan-Dec)")
+  plt.xticks(range(1, len(tr_date[0]) + 15, 10))
   plt.ylabel("ADJ CLOSE (USD)")
   plt.title("APPLE (AAPL)")
 

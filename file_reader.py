@@ -45,10 +45,11 @@ def strip_file_names(files):
   return file_names
 
 def plotting(close, tr_date, files):
+  stock_name = gui.stock_name
   file_names = strip_file_names(files)
 
   plt.figure(figsize=(16,8))
-  plt.suptitle("YEARLY PERFORMANCE")
+  plt.suptitle("PERFORMANCE BY YEAR")
 
   for x in range(len(tr_date)):
     plt.plot(close[x], linewidth=1)
@@ -57,7 +58,7 @@ def plotting(close, tr_date, files):
   plt.xlabel("TRADING DAYS (1 YR | Jan-Dec)")
   plt.xticks(range(1, len(tr_date[0]) + 15, 10))
   plt.ylabel("ADJ CLOSE (USD)")
-  plt.title("APPLE (AAPL)")
+  plt.title(stock_name)
 
   plt.savefig('Data_Graph.png')
   plt.show()
